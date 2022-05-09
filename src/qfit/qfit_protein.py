@@ -282,8 +282,8 @@ class QFitProtein:
         multiconformer = multiconformer.combine(hetatms)
         fname = os.path.join(self.options.directory,
                              "multiconformer_model.pdb")
-        if self.structure.scale or self.structure.cryst_info:
-            multiconformer.tofile(fname, self.structure.scale, self.structure.cryst_info)
+        if self.structure.scale or self.structure.crystal_symmetry:
+            multiconformer.tofile(fname, self.structure.scale, self.structure.crystal_symmetry)
         else:
             multiconformer.tofile(fname)
         return multiconformer
@@ -300,8 +300,8 @@ class QFitProtein:
         multiconformer = qfit()
         fname = os.path.join(self.options.directory,
                              self.pdb + "multiconformer_model2.pdb")
-        if self.structure.scale or self.structure.cryst_info:
-            multiconformer.tofile(fname, self.structure.scale, self.structure.cryst_info)
+        if self.structure.scale or self.structure.crystal_symmetry:
+            multiconformer.tofile(fname, self.structure.scale, self.structure.crystal_symmetry)
         else:
             multiconformer.tofile(fname)
         return multiconformer
